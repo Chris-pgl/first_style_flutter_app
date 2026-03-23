@@ -4,6 +4,8 @@ class TextStyleWidgest extends StatelessWidget {
   const TextStyleWidgest({super.key});
 
   @override
+  // Costruisce una colonna di esempi che mostra alcune proprieta'
+  // base dello stile del testo in Flutter.
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

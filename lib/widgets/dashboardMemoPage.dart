@@ -4,6 +4,8 @@ class Dashboardmemopage extends StatelessWidget {
   const Dashboardmemopage({Key? key}) : super(key: key);
 
   @override
+  // Costruisce l'intera pagina della dashboard e adatta il layout
+  // in base alla larghezza disponibile sullo schermo.
   Widget build(BuildContext context) {
     //Memorizzo la dimensione dello schermo
     final size = MediaQuery.of(context).size;
@@ -35,6 +37,7 @@ class Dashboardmemopage extends StatelessWidget {
   }
 }
 
+// Genera una card riassuntiva con titolo, valore e colore di sfondo.
 Widget _statCard(String label, String value, Color bgColor) {
   return Container(
     width: 110,
@@ -57,6 +60,7 @@ Widget _statCard(String label, String value, Color bgColor) {
 }
 
 //buildStatsRow, sarà la build della tabella
+// Mostra in una riga le statistiche principali della dashboard.
 Widget _buildStatsRow() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,6 +72,7 @@ Widget _buildStatsRow() {
   );
 }
 
+// Crea la riga di intestazione della tabella con i nomi delle colonne.
 TableRow _tableHeader() {
   return const TableRow(
     decoration: BoxDecoration(color: Colors.black12),
@@ -88,6 +93,8 @@ TableRow _tableHeader() {
   );
 }
 
+// Costruisce una singola riga della tabella e ne colora lo sfondo
+// in base alla priorita' del memo o al suo stato di completamento.
 TableRow _tableRow(String title, String date, String priority, bool completed) {
   return TableRow(
     decoration: BoxDecoration(color: _rowColor(priority, completed)),
@@ -99,6 +106,7 @@ TableRow _tableRow(String title, String date, String priority, bool completed) {
   );
 }
 
+// Crea l'area principale con la tabella dei memo e alcuni dati di esempio.
 Widget _buildTableArea() {
   return Container(
     padding: const EdgeInsets.all(12),
@@ -123,6 +131,7 @@ Widget _buildTableArea() {
   );
 }
 
+// Costruisce il pannello laterale con una lista di note rapide statiche.
 Widget _buildSidePanel() {
   return Container(
     padding: const EdgeInsets.all(16),
@@ -148,6 +157,8 @@ Widget _buildSidePanel() {
   );
 }
 
+// Decide il colore di sfondo della riga:
+// verde se il task e' completato, rosato se e' urgente, bianco altrimenti.
 Color _rowColor(String priority, bool completed) {
   if (completed) return Colors.green.shade100;
   if (priority.toLowerCase() == "urgente")
