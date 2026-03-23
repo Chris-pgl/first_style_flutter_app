@@ -56,6 +56,7 @@ Widget _statCard(String label, String value, Color bgColor) {
   );
 }
 
+//buildStatsRow, sarà la build della tabella
 Widget _buildStatsRow() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
